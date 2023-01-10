@@ -1,6 +1,5 @@
 <?php
-    class Articles {
-        public $animal;
-        public $toy;
-        public $variety;
+    abstract class Articles {
+        public $food;
+        public $objects;
     }
