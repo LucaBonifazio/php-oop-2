@@ -24,3 +24,6 @@ class SubUser extends User {
         return $this;
     }
 }
+
+$username = 'The One';
+$password = 'password';

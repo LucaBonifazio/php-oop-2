@@ -14,3 +14,7 @@ class User {
 		$this->creditCard = $creditCard;
 	}
 }
+
+$name = 'Pinco';
+$surname = 'Pallino';
+$creditCard = 123456789;

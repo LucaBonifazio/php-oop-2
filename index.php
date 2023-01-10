@@ -19,7 +19,23 @@ Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibil
 </head>
 <body>
     <?php
-        
+        echo $name;
+    ?>
+        <br>
+    <?php
+        echo $surname;
+    ?>
+        <br>
+    <?php
+        echo $creditCard;
+    ?>
+        <br>
+    <?php
+        echo $username;
+    ?>
+        <br>
+    <?php
+        echo $password;
     ?>
 </body>
 </html>
