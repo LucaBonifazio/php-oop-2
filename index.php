@@ -1,13 +1,15 @@
-<!-- L'e-commerce vende prodotti per gli animali.
-I prodotti saranno oltre al cibo, anche giochi, cucce, etc.
-L'utente potrà sia comprare i prodotti senza registrarsi, oppure iscriversi e ricevere il 20% di sconto su tutti i prodotti.
-Il pagamento avviene con la carta di credito, che non deve essere scaduta.
-BONUS:
-Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibili solo in un periodo particolare (es. da maggio ad agosto). -->
 <?php
     include_once __DIR__ . '/articles.php';
     include_once __DIR__ . '/creditCard.php';
     include_once __DIR__ . '/user.php';
+
+    $creditCardnumber = 1234567890;
+    $obj = new Articles('Cuccia', 15, 'oggettistica'); 
+    $user = new User('user', 'Pallino', $creditCardnumber);
+    $user->registerUser('Pallonzo','password');
+    $creditCard = new CreditCard($creditCardnumber, 234, '10.10.23');
+    $result =  $user->pay($obj->getPrice());
+    var_dump($user)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,23 +21,19 @@ Alcuni prodotti (es. antipulci) avranno la caratteristica che saranno disponibil
 </head>
 <body>
     <?php
-        echo $name;
+        echo $obj->getTitle();
     ?>
         <br>
     <?php
-        echo $surname;
+        echo $obj->getPrice();
     ?>
         <br>
     <?php
-        echo $creditCard;
+        echo $obj->getCategory();
     ?>
         <br>
     <?php
-        echo $username;
-    ?>
-        <br>
-    <?php
-        echo $password;
+        echo $result;
     ?>
 </body>
 </html>
