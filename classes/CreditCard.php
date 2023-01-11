@@ -2,11 +2,11 @@
 
 class CreditCard {
 	private string $id;
-	private string $number;
+	private int $number;
 	private int $expiryYear;
 	private int $expiryMonth;
 
-	public function __construct(string $number, int $expiryYear, int $expiryMonth)
+	public function __construct(int $number, int $expiryYear, int $expiryMonth)
 	{
 		// fare anche i controlli dei valori
 		$this->number = $number;

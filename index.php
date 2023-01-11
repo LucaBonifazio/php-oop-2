@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . '/traits/Position.php';
+include_once __DIR__ . '/traits/Name.php';
 include_once __DIR__ . '/classes/CreditCard.php';
 include_once __DIR__ . '/classes/User.php';
 include_once __DIR__ . '/classes/GuestUser.php';

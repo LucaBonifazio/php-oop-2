@@ -2,16 +2,14 @@
 
 class User 
 {
-    protected string $name;
-    protected string $address;
+    use Name;
+    use Position;
     protected CreditCard $creditCard;   
     protected int $discount = 0;
     protected array $products = [];
 
-    public function __construct($name, $address, $creditCard)
+    public function __construct($creditCard)
     {
-        $this->name = $name;
-        $this->address = $address;
         $this->creditCard = $creditCard;
     }
 

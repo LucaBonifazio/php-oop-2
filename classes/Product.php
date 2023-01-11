@@ -1,6 +1,7 @@
 <?php
 
-class Product {
+class Product 
+{
 	private string $id;
 	private string $name;
 	private string $category;
@@ -39,7 +40,8 @@ class Product {
 		return $this;
 	}
 
-	public static function getAll() {
+	public static function getAll() 
+        {
 		// restituisce un array di oggetti tipo Product (tutti i prodotti) oppure l'array degli id
 		// SELECT `id` FROM `products`
 		// per ciascuna riga di risultato creo un nuovo oggetto new Product($id)

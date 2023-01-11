@@ -1,10 +1,11 @@
 <?php
 
-class RegisteredUser extends User {
+class RegisteredUser extends User 
+{
 	private int $id;
 	private string $username;
 	private string $password;
-	protected $discount = 20;
+	protected int $discount = 20;
 
 	public function __construct($username, $password)
 	{
@@ -12,6 +13,8 @@ class RegisteredUser extends User {
 		// setto le variabili di istanza in base ai volori del database
 		//
 		// $row = $conn->query("SELECT * FROM users WHERE `username` = $username AND `password` = $password;");
+        $this->username = $username;
+        $this->password = $password;
 
 		$row = ['dati dal database'];
 

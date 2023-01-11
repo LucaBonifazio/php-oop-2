@@ -1,8 +1,10 @@
 
 <?php
 
-class GuestUser extends User {
-	public function register($username, $password, $name, $address, $creditCard) {
+class GuestUser extends User 
+{
+	public function register($username, $password, $name, $address, $creditCard) 
+    {
 		// salva l'utente nel database
 	}
 }
