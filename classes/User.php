@@ -8,9 +8,10 @@ class User
     protected int $discount = 0;
     protected array $products = [];
 
-    public function __construct($creditCard)
+    public function __construct($creditCard, $name, $surname, $address)
     {
         $this->creditCard = $creditCard;
+        $this->getCompleteName($name, $surname);
     }
 
     public function buy() 

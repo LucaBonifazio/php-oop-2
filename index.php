@@ -8,22 +8,31 @@ include_once __DIR__ . '/classes/GuestUser.php';
 include_once __DIR__ . '/classes/RegisteredUser.php';
 include_once __DIR__ . '/classes/Product.php';
 
-$username		= $_POST['username']		?? '';
-$password		= $_POST['password']		?? '';
+$username		= $_POST['username']	?? 'SuperPippo';
+$password		= $_POST['password']	?? 'password';
 
-$name				= $_POST['name']			?? '';
-$address			= $_POST['address']		?? '';
+$name			= $_POST['name']		?? 'Pippo';
+$address		= $_POST['address']		?? 'Via Mazzini';
 
-$number			= $_POST['number']		?? '';
-$expiryYear		= $_POST['expiryYear']	?? '';
-$expiryMonth	= $_POST['expiryMonth']	?? '';
+$number			= $_POST['number']		?? 0;
+$expiryYear		= $_POST['expiryYear']	?? 0;
+$expiryMonth	= $_POST['expiryMonth']	?? 0;
 
 $creditCard		= new CreditCard($number, $expiryYear, $expiryMonth);
 
 if ($username && $password) {
 	$user = new RegisteredUser($username, $password);
 } else {
-	$user = new GuestUser($name, $address, $creditCard);
+	$user = new GuestUser($creditCard, $name, $surname, $address);
+}
+
+
+try {
+    throw new Exception('Errore di prova');
+}
+catch (Exception $e) {
+    //var_dump($e);
+    echo 'Caught exception: ',  $e->getMessage();
 }
 
 ?>

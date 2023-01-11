@@ -9,7 +9,7 @@
             $this->lat = $lat;
             $this->lng = $lng;
 
-            $this->address = $lat + $lng;
+            $this->address = $lat . ' ' . $lng;
 
             return $this->address;    
         }

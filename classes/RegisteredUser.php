@@ -17,9 +17,11 @@ class RegisteredUser extends User
         $this->password = $password;
 
 		$row = ['dati dal database'];
+        
+		$this->creditCard = new CreditCard(123, 2023, 10);
 
-		$this->creditCard = CreditCard::get($row['creditcard_id']);
+		//parent::__construct($row['name'], $row['address'], $this->creditCard);
 
-		parent::__construct($row['name'], $row['address'], $this->creditCard);
+        parent::__construct($this->creditCard, 'name', 'surname', 'address');
 	}
 }
