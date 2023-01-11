@@ -1,15 +1,29 @@
 <?php
-    include_once __DIR__ . '/articles.php';
-    include_once __DIR__ . '/creditCard.php';
-    include_once __DIR__ . '/user.php';
 
-    $creditCardnumber = 1234567890;
-    $obj = new Articles('Cuccia', 15, 'oggettistica'); 
-    $user = new User('user', 'Pallino', $creditCardnumber);
-    $user->registerUser('Pallonzo','password');
-    $creditCard = new CreditCard($creditCardnumber, 234, '10.10.23');
-    $result =  $user->pay($obj->getPrice());
-    var_dump($user)
+include_once __DIR__ . '/classes/CreditCard.php';
+include_once __DIR__ . '/classes/User.php';
+include_once __DIR__ . '/classes/GuestUser.php';
+include_once __DIR__ . '/classes/RegisteredUser.php';
+include_once __DIR__ . '/classes/Product.php';
+
+$username		= $_POST['username']		?? '';
+$password		= $_POST['password']		?? '';
+
+$name				= $_POST['name']			?? '';
+$address			= $_POST['address']		?? '';
+
+$number			= $_POST['number']		?? '';
+$expiryYear		= $_POST['expiryYear']	?? '';
+$expiryMonth	= $_POST['expiryMonth']	?? '';
+
+$creditCard		= new CreditCard($number, $expiryYear, $expiryMonth);
+
+if ($username && $password) {
+	$user = new RegisteredUser($username, $password);
+} else {
+	$user = new GuestUser($name, $address, $creditCard);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,20 +34,6 @@
     <title>E-commerce</title>
 </head>
 <body>
-    <?php
-        echo $obj->getTitle();
-    ?>
-        <br>
-    <?php
-        echo $obj->getPrice();
-    ?>
-        <br>
-    <?php
-        echo $obj->getCategory();
-    ?>
-        <br>
-    <?php
-        echo $result;
-    ?>
+
 </body>
 </html>
